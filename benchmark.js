@@ -1,10 +1,15 @@
 var Benchmark = require('benchmark');
 var suite = new Benchmark.Suite;
 
-var problem = require('./problem_1/index.js');
+var problem1 = require('./problem_1/index.js');
+var problem2 = require('./problem_2/index.js');
 
-suite.add('RegExp#test', function() {
-  problem.run();
+suite
+.add('Problem 1', function() {
+  problem1.run();
+})
+.add('Problem 2', function() {
+  problem2.run();
 })
 .on('cycle', function(event) {
   console.log(String(event.target));
